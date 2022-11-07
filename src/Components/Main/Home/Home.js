@@ -1,10 +1,12 @@
 import React from 'react';
+import Services from '../Services/Services';
+import Available from './Available';
+import Chef from './Chef';
 import Slider from './Slider';
-import './Slider.css'
 
 const Home = () => {
     return (
-        <div>
+        <div className=''>
             <h1 className="text-2xl py-10">Welcome to
                 <br />
                 <span className='text-5xl font-bold'>Zidans Home Kitchen</span></h1>
@@ -12,16 +14,7 @@ const Home = () => {
 
                 {/* Text and Image */}
                 <div>
-                    <div className="hero h-full">
-                        <div className="hero-content flex-col lg:flex-row">
-                            <img src="https://static.cordonbleu.edu/Files/MediaFile/79299.jpg" className="max-w-sm rounded-lg shadow-2xl" />
-                            <div>
-                                <h1 className="text-5xl font-bold">Chef Zidan</h1>
-                                <p className="py-6">Ched Zidan is a professional chef. He is experienced for more than 10 years in cooking. He is now currently a chef in his own restaurent Zidans Home Kitchen</p>
-                                <button className="btn btn-primary">Get Started</button>
-                            </div>
-                        </div>
-                    </div>
+                    <Chef />
                 </div>
 
                 {/* Slider */}
@@ -29,6 +22,8 @@ const Home = () => {
                     <Slider />
                 </div>
             </div>
+            <Available />
+            <Services />
         </div>
     );
 };

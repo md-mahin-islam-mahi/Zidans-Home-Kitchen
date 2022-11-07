@@ -4,6 +4,7 @@ import History from "../../Components/Main/History/History";
 import Home from "../../Components/Main/Home/Home";
 import Login from "../../Components/Main/Login/Login";
 import Ratings from "../../Components/Main/Ratings/Ratings";
+import AllService from "../../Components/Main/Services/AllService";
 import Services from "../../Components/Main/Services/Services";
 import Signup from "../../Components/Main/Signup/Signup";
 import Main from "../../Layouts/Main";
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/services",
                 element: <Services></Services>
+            },
+            {
+                path: "/all-services",
+                element: <AllService></AllService>
             },
             {
                 path: "/ratings/:id",
