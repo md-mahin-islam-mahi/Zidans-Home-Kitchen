@@ -3,6 +3,7 @@ import Blog from "../../Components/Main/Blog/Blog";
 import History from "../../Components/Main/History/History";
 import Home from "../../Components/Main/Home/Home";
 import Login from "../../Components/Main/Login/Login";
+import RateItem from "../../Components/Main/RateItem/RateItem";
 import Ratings from "../../Components/Main/Ratings/Ratings";
 import AllService from "../../Components/Main/Services/AllService";
 import Services from "../../Components/Main/Services/Services";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog></Blog>
+            },
+            {
+                path: "/rate-item",
+                element: <RateItem></RateItem>
             },
             {
                 path: "/login",
