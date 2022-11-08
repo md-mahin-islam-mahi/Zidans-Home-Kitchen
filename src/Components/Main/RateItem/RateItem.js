@@ -12,12 +12,13 @@ const RateItem = () => {
         const comment = form.comment.value;
 
         const ratings = {
+            name: name,
             image: image,
             email: email,
             comment: comment
         }
 
-        fetch('http://localhost:5000/ratings', {
+        fetch('http://localhost:5000/rating', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
