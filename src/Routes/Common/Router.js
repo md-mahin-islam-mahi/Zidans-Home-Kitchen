@@ -28,6 +28,11 @@ export const router = createBrowserRouter([
                 element: <AllService></AllService>
             },
             {
+                path: "/add-rating/:id",
+                loader: ({params}) => fetch(`http://localhost:5000/food-items/${params.id}`),
+                element: <RateItem></RateItem>
+            },
+            {
                 path: "/ratings/:id",
                 element: <Ratings></Ratings>
             },
