@@ -13,7 +13,7 @@ const Home = () => {
             <div className='grid lg:grid-cols-2'>
 
                 {/* Text and Image */}
-                <div>
+                <div className='sm:mx-auto'>
                     <Chef />
                 </div>
 

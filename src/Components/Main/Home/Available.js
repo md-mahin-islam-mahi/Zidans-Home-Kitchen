@@ -2,7 +2,7 @@ import React from 'react';
 
 const Available = () => {
     return (
-        <footer data-theme="dark" className="footer flex justify-evenly p-10 text-base-content rounded-lg my-20 text-center">
+        <footer data-theme="night" className="footer lg:flex justify-evenly sm:mx-auto px-10 py-20 text-base-content rounded-lg my-20 text-center shadow-lg border">
             <div>
                 <p className=' text-gray-400'>We are Open monday-friday</p>
                 <h3 className='text-2xl text-white font-bold'>7:00am - 9:00 pm</h3>

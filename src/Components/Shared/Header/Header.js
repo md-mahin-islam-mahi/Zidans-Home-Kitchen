@@ -6,6 +6,7 @@ const Header = () => {
     const navItems = <>
         <li><Link to="/my-ratings">My Ratings</Link></li>
         <li><Link to="/blog">Blog</Link></li>
+        <li><Link to="/login">Log In</Link></li>
     </>
     return (
         <div>
