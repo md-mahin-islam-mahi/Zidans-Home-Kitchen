@@ -10,20 +10,26 @@ const Home = () => {
             <h1 className="text-2xl py-10">Welcome to
                 <br />
                 <span className='text-5xl font-bold'>Zidans Home Kitchen</span></h1>
-            <div className='grid lg:grid-cols-2'>
+            <div className='flex flex-col-reverse'>
 
                 {/* Text and Image */}
-                <div className='sm:mx-auto'>
+                <div className='sm:mx-auto my-10'>
                     <Chef />
                 </div>
 
                 {/* Slider */}
-                <div>
+                <div className='px-5'>
                     <Slider />
                 </div>
             </div>
-            <Available />
-            <Services />
+            <div className='mt-5'>
+                <h2 className="text-4xl mt-10 font-semibold">Timing, Contact and Location</h2>
+                <Available />
+            </div>
+            <div>
+            <h2 className="text-4xl my-10 font-semibold">Out Services</h2>
+                <Services />
+            </div>
         </div>
     );
 };

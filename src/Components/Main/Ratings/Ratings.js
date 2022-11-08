@@ -1,16 +1,18 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import RatingTable from './RatingTable';
+import React, { useEffect, useState } from 'react';
 
 const Ratings = () => {
-    const ratings = useLoaderData();
+    const [ratings, setRatings] = useState([]);
+
+    useEffect( () => {
+        fetch(`http://localhost:5000/ratings`)
+        .then(res => res.json())
+        .then(data => setRatings(data));
+    }, [])
+
     return (
-        <div>
+        <div className='py-10'>
             {
-                ratings.map(rating => <RatingTable 
-                    key={rating._id}
-                    rating={rating}
-                     ></RatingTable>)
+                ratings.map(rating => <h2>{rating.name}</h2>)
             }
         </div>
     );

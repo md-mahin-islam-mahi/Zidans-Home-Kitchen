@@ -24,8 +24,8 @@ const AllServiceCard = ({ food }) => {
                         <span className='ml-5'><b>Price: {price}</b></span>
                     </p>
                     <div className="card-actions">
-                        <Link to={`/add-rating/${food._id}`}>
-                            <button className="btn btn-outline btn-error shadow-xl mt-3">Rate Now</button>
+                        <Link to={`/details/${food._id}`}>
+                            <button className="btn btn-outline btn-error shadow-xl mt-3">Detail</button>
                         </Link>
                     </div>
                 </div>

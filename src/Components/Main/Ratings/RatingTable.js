@@ -1,13 +1,16 @@
 import React from 'react';
 
-const RatingTable = ({ rating }) => {
-    const {name, image, email, comment} = rating;
+const RatingTable = ({ ratings }) => {
+    const {name, image, comment} = ratings;
     return (
-        <div>
+        <div data-theme="dark" className='py-5'>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <tbody>
                         <tr>
+                            <th>
+                                
+                            </th>
                             <td>
                                 <div className="flex items-center space-x-3">
                                     <div className="avatar">
@@ -16,14 +19,13 @@ const RatingTable = ({ rating }) => {
                                         </div>
                                     </div>
                                     <div>
-                                        {/* <div className="font-bold">{name}</div> */}
+                                        <div className="font-bold">{name}</div>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <p className="text-xl">{email}</p>
+                                <p className="text-xl">{comment}</p>
                             </td>
-                            <td>{comment}</td>
                             <th>
                                 <button className="btn btn-ghost btn-xs">Remove</button>
                             </th>
