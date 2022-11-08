@@ -3,9 +3,33 @@ import { useLoaderData } from 'react-router-dom';
 
 const RateItem = () => {
     const food = useLoaderData();
-    const {name} = food
+    const {name, image} = food;
+
+    const addRating = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const comment = form.comment.value;
+
+        const ratings = {
+            image: image,
+            email: email,
+            comment: comment
+        }
+
+        fetch('http://localhost:5000/ratings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(ratings)
+        })
+        .then(res => res.json())
+        .catch(err => console.error(err));
+        form.reset();
+    }
     return (
-        <form>
+        <form onSubmit={addRating}>
             <h3 className="text-5xl mt-10">You are about to rate <span className='text-blue-600 font-semibold'>{name}</span> item</h3>
             <div className="hero min-h-screen">
                 <div className="card w-full max-w-md shadow-2xl ">
@@ -19,16 +43,9 @@ const RateItem = () => {
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Rating</span>
-                            </label>
-                            <input name="rating" type="number" placeholder="Rating" className="input input-bordered" required />
-                        </div>
-
-                        <div className="form-control">
-                            <label className="label">
                                 <span className="label-text">Your Comment</span>
                             </label>
-                            <textarea className="textarea textarea-bordered" placeholder="Your Comment"></textarea>
+                            <textarea name="comment" className="textarea textarea-bordered" placeholder="Your Comment"></textarea>
                         </div>
 
                         <div className="form-control mt-6">
