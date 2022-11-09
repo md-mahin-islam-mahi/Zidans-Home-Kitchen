@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../Hooks/useTitle';
 import { AuthContext } from '../../Context/UserContext';
+import ShowMyReview from './ShowMyReview';
 
 const History = () => {
     const {user, loader} = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const [allReview, setAllReview] = useState([]);
     useTitle('My-Review')
     
@@ -14,19 +15,21 @@ const History = () => {
         .then(data => setAllReview(data))
     }, [])
 
+    // console.log(allReview)
+
     if (loader) {
         return <div>Loading...</div>
     };
 
-    const selectedItem = allReview.filter(item => item.email === user.email);
-    const newReview = [selectedItem];
-    const allItem = [...newReview]
-
-    console.log(allItem)
+    const selectedItem = allReview.filter(item => item.userId === user.uid);
+    console.log(selectedItem)
 
     return (
         <div>
-            
+            <h2 className="text-4xl font-semibold py-10">My Reviews</h2>
+            {
+                selectedItem.map(item => <ShowMyReview item={item}></ShowMyReview>)
+            }
         </div>
     );
 };

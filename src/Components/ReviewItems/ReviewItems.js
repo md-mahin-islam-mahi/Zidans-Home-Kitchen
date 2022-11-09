@@ -10,7 +10,7 @@ const ReviewItems = () => {
         e.preventDefault();
         const form = e.target;
         const itemName = foods.name;
-        const email = form.email.value;
+        const userId = user.uid;
         const comment = form.review.value;
         const photoURL = user?.photoURL;
         const item_id = foods._id;
@@ -18,7 +18,7 @@ const ReviewItems = () => {
         const review = {
             item_id,
             itemName,
-            email,
+            userId,
             comment,
             photoURL 
         }
