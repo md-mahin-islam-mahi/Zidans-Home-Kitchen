@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-rating/:id",
-                loader: ({params}) => fetch(`http://localhost:5000/food-items/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/food-items/${params.id}`),
                 element: <RateItem></RateItem>
             },
             {
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/details/:id",
-                loader: ({params}) => fetch(`http://localhost:5000/food-items/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/food-items/${params.id}`),
                 element: <Detail></Detail>
             },
             {

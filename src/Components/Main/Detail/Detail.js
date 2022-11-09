@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
-import Ratings from '../Ratings/Ratings';
 
 const Detail = () => {
     const food = useLoaderData();
@@ -22,7 +21,6 @@ const Detail = () => {
                 </div>
             </div>
             <div>
-                <Ratings />
             </div>
         </div>
     );

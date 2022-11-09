@@ -15,7 +15,9 @@ const Header = () => {
 
     const navItems =
         <>
-            <li><Link to="/my-ratings">My Ratings</Link></li>
+            {
+                user?.uid ? <li><Link to="/my-ratings">My Ratings</Link></li> : null
+            }
             <li><Link to="/blog">Blog</Link></li>
             {
                 user?.uid ?

@@ -12,6 +12,7 @@ const UserContext = ({ children }) => {
 
     //* signUp (create user);
     const signUp = (email, password) => {
+        setLoader(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 

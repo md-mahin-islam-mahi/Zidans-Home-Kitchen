@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
@@ -7,13 +7,9 @@ import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'fi
 
 
 const Login = () => {
-    const {googleSignUp, loginMethod, gitHubLogin, facebookLogin, loader} = useContext(AuthContext);
-    const [error, setError] = useState([])
-    const navigate = useNavigate()
+    const {googleSignUp, loginMethod, gitHubLogin, facebookLogin} = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    if(loader) {
-        return <progress className="progress w-56"></progress>
-    }
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
@@ -24,10 +20,10 @@ const Login = () => {
         .then(result => {
             const user = result.user;
                 console.log(user)
-                navigate('/');
+                form.reset();
+                navigate("/")
             })
         .catch(error => {
-            setError(error)
         })
     };
 
@@ -97,7 +93,6 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
-                            <p className="text-red-600">{error}</p>
                         </div>
                     </div>
                 </div>
