@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Context/UserContext';
 
 const ReviewItems = () => {
     const foods = useLoaderData();
+    const {user} = useContext(AuthContext);
 
     const reviewItem = e => {
         e.preventDefault();
@@ -10,11 +12,15 @@ const ReviewItems = () => {
         const itemName = foods.name;
         const email = form.email.value;
         const comment = form.review.value;
+        const photoURL = user?.photoURL;
+        const item_id = foods._id;
 
         const review = {
+            item_id,
             itemName,
             email,
-            comment
+            comment,
+            photoURL 
         }
         
         fetch('http://localhost:5000/reviews', {

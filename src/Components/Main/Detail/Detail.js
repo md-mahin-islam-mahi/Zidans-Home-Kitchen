@@ -22,7 +22,7 @@ const Detail = () => {
                         <span className='ml-5'><b>Price: {price}</b></span>
                     </p>
                     <Link to={`/add-review/${food._id}`}>
-                        <button className='btn btn-outline btn-error'>Add Review to {name}</button>
+                        <button className='btn btn-outline btn-error'>Add Review To Our {name} Item</button>
                     </Link>
                 </div>
             </div>
