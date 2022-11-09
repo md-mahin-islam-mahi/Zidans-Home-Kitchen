@@ -1,12 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
+import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import login from './image/login.png';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
+    const {googleSignUp, loginMethod} = useContext(AuthContext);
+    const [error, setError] = useState([])
+    const navigate = useNavigate()
+
+    // if(loader) {
+    //     return <progress className="progress w-56"></progress>
+    // }
+    const handleLogin = event => {
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        loginMethod(email, password)
+        .then(result => {
+            const user = result.user;
+                console.log(user)
+                alert('login sucessfully');
+                navigate('/');
+            })
+        .catch(error => {
+            setError(error)
+        })
+    };
+
+    const provider = new GoogleAuthProvider()
+    const googleSignup = () => {
+        googleSignUp(provider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.error(error));
+
+    }
 
     return (
-        <form>
+        <form onSubmit={handleLogin}>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -26,12 +64,17 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input name="password" type="password" placeholder="password" className="input input-bordered" required />
-                                
+                                <div className='flex justify-center items-center'>
+                                    <FaGoogle onClick={googleSignup} className='text-4xl mt-5 mx-5  cursor-pointer' />
+                                    <FaFacebook className='text-4xl mt-5 mx-5  cursor-pointer' />
+                                    <FaGithub className='text-4xl mt-5 mx-5  cursor-pointer' />
+                                </div>
                                 <p className="my-3">Don't have an account? <Link to="/signup">Sign Up</Link></p>
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
+                            <p className="text-red-600">{error}</p>
                         </div>
                     </div>
                 </div>

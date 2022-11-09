@@ -1,18 +1,16 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
-import { FaGoogle, FaGithub } from "react-icons/fa";
 import login from '../Login/image/login.png'
-import { GoogleAuthProvider } from 'firebase/auth';
 
 const Signup = () => {
-    const {signUp, googleSignUp} = useContext(AuthContext);
+    const {signUp} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        // const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -27,16 +25,6 @@ const Signup = () => {
         navigate("/login")
     }
 
-    const provider = new GoogleAuthProvider()
-    const googleSignup = () => {
-        googleSignUp(provider)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.error(error));
-
-    }
 
     return (
         <form onSubmit={handleSignup}>
@@ -67,10 +55,7 @@ const Signup = () => {
                                 <input name="password" type="password" placeholder="password" className="input input-bordered" required />
                                 <div className='flex justify-center items-center'>
                                 </div>
-                                <div className='flex justify-center items-center'>
-                                    <FaGoogle onClick={googleSignup} className='text-4xl mt-5 mx-5' />
-                                    <FaGithub className='text-4xl mt-5 mx-5' />
-                                </div>
+                                
                                 <p className="my-3">Already have an account? <Link to="/login">Log In</Link></p>
                             </div>
                             <div className="form-control mt-6">
