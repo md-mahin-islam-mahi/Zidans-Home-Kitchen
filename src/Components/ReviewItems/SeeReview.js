@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import ShowReviewCard from './ShowReviewCard';
 
-const SeeReview = ({food}) => {
-const [reviews, setReviews] = useState([]);
-
-useEffect( () => {
-    fetch('http://localhost:5000/reviews')
-    .then(res => res.json())
-    .then(data => setReviews(data))
-}, [food._id])
-
-console.log(reviews);
+const SeeReview = ({ food }) => {
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+    const newReview = reviews.filter(review => review.item_id === food._id);
     return (
         <div className='flex flex-col-reverse'>
-               {
-                reviews.map(review => <ShowReviewCard item={review}></ShowReviewCard>)
-               }
+            {
+                newReview.map(item => <ShowReviewCard item={item}></ShowReviewCard>)
+            }
         </div>
     );
 };
