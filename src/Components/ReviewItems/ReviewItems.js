@@ -2,17 +2,17 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const ReviewItems = () => {
-    const food = useLoaderData();
+    const foods = useLoaderData();
 
     const reviewItem = e => {
         e.preventDefault();
         const form = e.target;
-        const name = food.name;
+        const itemName = foods.name;
         const email = form.email.value;
         const comment = form.review.value;
 
         const review = {
-            name,
+            itemName,
             email,
             comment
         }
@@ -37,7 +37,7 @@ const ReviewItems = () => {
                         </div>
                         <div className="card w-full shadow-2xl ">
                             <div className="card-body">
-                                <h2 className="text-4xl font-semibold">Review {food.name} Item</h2>
+                                <h2 className="text-4xl font-semibold">Review {foods.name} Item</h2>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>

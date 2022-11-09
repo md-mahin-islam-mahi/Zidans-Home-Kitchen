@@ -26,7 +26,8 @@ const Detail = () => {
                     </Link>
                 </div>
             </div>
-                <SeeReview></SeeReview>
+            <h1 className="text-4xl font-semibold my-20">Reviews on {name}</h1>
+                <SeeReview food={food}></SeeReview>
         </div>
     );
 };

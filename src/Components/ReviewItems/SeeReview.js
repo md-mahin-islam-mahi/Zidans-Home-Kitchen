@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReviewCard from './ReviewCard';
 
-const SeeReview = () => {
+const SeeReview = ({food}) => {
 const [reviews, setReviews] = useState([]);
 
 useEffect( () => {
@@ -14,8 +14,8 @@ useEffect( () => {
         <div>
             {
                 reviews.map(item => <ReviewCard 
-                    key="item._id"
-                    item={item}
+                    key={item._id}
+                    food={food}
                     ></ReviewCard>)
             }
         </div>
