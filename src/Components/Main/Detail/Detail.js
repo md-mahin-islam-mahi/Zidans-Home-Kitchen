@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle';
+import SeeReview from '../../ReviewItems/SeeReview';
 
 const Detail = () => {
     const food = useLoaderData();
@@ -20,8 +21,12 @@ const Detail = () => {
                         </span>
                         <span className='ml-5'><b>Price: {price}</b></span>
                     </p>
+                    <Link to={`/add-review/${food._id}`}>
+                        <button className='btn btn-outline btn-error'>Add Review to {name}</button>
+                    </Link>
                 </div>
             </div>
+                <SeeReview></SeeReview>
         </div>
     );
 };

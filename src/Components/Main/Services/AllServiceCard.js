@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const AllServiceCard = ({ food }) => {
-    useEffect(() => {
-        fetch('')
-    }, [])
+ 
 
     const { name, image, description, ratings, price } = food;
     return (
