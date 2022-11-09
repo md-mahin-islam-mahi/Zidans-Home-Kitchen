@@ -3,17 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import login from './image/login.png';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const {googleSignUp, loginMethod} = useContext(AuthContext);
+    const {googleSignUp, loginMethod, gitHubLogin, facebookLogin, loader} = useContext(AuthContext);
     const [error, setError] = useState([])
     const navigate = useNavigate()
 
-    // if(loader) {
-    //     return <progress className="progress w-56"></progress>
-    // }
+    if(loader) {
+        return <progress className="progress w-56"></progress>
+    }
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
@@ -24,7 +24,6 @@ const Login = () => {
         .then(result => {
             const user = result.user;
                 console.log(user)
-                alert('login sucessfully');
                 navigate('/');
             })
         .catch(error => {
@@ -32,17 +31,41 @@ const Login = () => {
         })
     };
 
+    //* google login Method
     const provider = new GoogleAuthProvider()
     const googleSignup = () => {
         googleSignUp(provider)
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate('/')
         })
         .catch(error => console.error(error));
-
     }
 
+    //* github login Method
+    const gitHubProvider = new GithubAuthProvider();
+    const githubSignIn = () => {
+        gitHubLogin(gitHubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate('/')
+        })
+        .catch(err => console.error(err));
+    }
+
+    //* facebook login Method
+    const facebookProvider = new FacebookAuthProvider();
+    const facebookSignup = () => {
+        facebookLogin(facebookProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate('/')
+        })
+        .catch(error => console.error(error));
+    }
     return (
         <form onSubmit={handleLogin}>
             <div className="hero min-h-screen">
@@ -66,8 +89,8 @@ const Login = () => {
                                 <input name="password" type="password" placeholder="password" className="input input-bordered" required />
                                 <div className='flex justify-center items-center'>
                                     <FaGoogle onClick={googleSignup} className='text-4xl mt-5 mx-5  cursor-pointer' />
-                                    <FaFacebook className='text-4xl mt-5 mx-5  cursor-pointer' />
-                                    <FaGithub className='text-4xl mt-5 mx-5  cursor-pointer' />
+                                    <FaFacebook onClick={facebookSignup} className='text-4xl mt-5 mx-5  cursor-pointer' />
+                                    <FaGithub onClick={githubSignIn} className='text-4xl mt-5 mx-5  cursor-pointer' />
                                 </div>
                                 <p className="my-3">Don't have an account? <Link to="/signup">Sign Up</Link></p>
                             </div>

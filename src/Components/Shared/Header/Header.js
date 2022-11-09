@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../Context/UserContext';
-// import { FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { AuthContext } from '../../Context/UserContext';
 
 const Header = () => {
-    const navItems = <>
-        <li><Link to="/my-ratings">My Ratings</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
-        <li><Link to="/login">Login</Link></li>
-    </>
+    const { user, logOutEvent } = useContext(AuthContext);
+
+    //? Log out method
+    const signOut = () => {
+        logOutEvent()
+            .then(() => { })
+            .catch(() => { })
+    }
+
+    const navItems =
+        <>
+            <li><Link to="/my-ratings">My Ratings</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+            {
+                user?.uid ?
+                    <li><p onClick={signOut}>Log Out</p> </li>
+                    :
+                    <li><Link to="/login">Login</Link></li>
+            }
+        </>
+
+
     return (
         <div>
             <div className="navbar bg-gray-100 shadow-lg">
@@ -29,7 +46,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    
+                    {
+                        user?.uid ? <p>{user.displayName}</p> : <FaUser />
+                    }
                 </div>
             </div>
         </div>
