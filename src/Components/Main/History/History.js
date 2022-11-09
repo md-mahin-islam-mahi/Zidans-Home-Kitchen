@@ -4,25 +4,24 @@ import { AuthContext } from '../../Context/UserContext';
 import ShowMyReview from './ShowMyReview';
 
 const History = () => {
-    const {user, loader} = useContext(AuthContext);
+    const { user, loader } = useContext(AuthContext);
     // console.log(user)
     const [allReview, setAllReview] = useState([]);
     useTitle('My-Review')
-    
-    useEffect( () => {
+
+    useEffect(() => {
         fetch('http://localhost:5000/reviews')
-        .then(res => res.json())
-        .then(data => setAllReview(data))
+            .then(res => res.json())
+            .then(data => setAllReview(data))
     }, [])
 
     // console.log(allReview)
 
     if (loader) {
-        return <div>Loading...</div>
+        return <progress className="progress w-56"></progress>
     };
 
     const selectedItem = allReview.filter(item => item.userId === user.uid);
-    console.log(selectedItem)
 
     return (
         <div>

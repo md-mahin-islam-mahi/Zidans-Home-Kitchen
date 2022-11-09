@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+import Add from "../../Components/Main/AddService/Add";
 import Blog from "../../Components/Main/Blog/Blog";
 import Detail from "../../Components/Main/Detail/Detail";
 import History from "../../Components/Main/History/History";
+import ShowMyReview from "../../Components/Main/History/ShowMyReview";
 import Home from "../../Components/Main/Home/Home";
 import Login from "../../Components/Main/Login/Login";
 import AllService from "../../Components/Main/Services/AllService";
@@ -10,6 +12,7 @@ import Signup from "../../Components/Main/Signup/Signup";
 import ReviewItems from "../../Components/ReviewItems/ReviewItems";
 import SeeReview from "../../Components/ReviewItems/SeeReview";
 import Main from "../../Layouts/Main";
+import PrivateRout from "../Private/PrivateRout";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +24,12 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: "/add-service",
+                element: <PrivateRout>
+                    <Add></Add>
+                </PrivateRout>
+            },
+            {
                 path: "/services",
                 element: <Services></Services>
             },
@@ -30,8 +39,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-review/:id",
-                loader: ({params}) => fetch(`http://localhost:5000/food-items/${params.id}`),
-                element: <ReviewItems></ReviewItems>
+                loader: ({ params }) => fetch(`http://localhost:5000/food-items/${params.id}`),
+                element: <PrivateRout>
+                    <ReviewItems></ReviewItems>
+                </PrivateRout>
             },
             {
                 path: "/reviews",
@@ -39,11 +50,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/my-ratings",
-                element: <History></History>
+                element: <PrivateRout>
+                    <History></History>
+                </PrivateRout>
+            },
+            {
+                path: "/",
+                loader: () => fetch('http://localhost:5000/reviews'),
+                element: <ShowMyReview></ShowMyReview>
             },
             {
                 path: "/details/:id",
-                loader: ({params}) => fetch(`https://zidans-home-kitchen.vercel.app/food-items/${params.id}`),
+                loader: ({ params }) => fetch(`https://zidans-home-kitchen.vercel.app/food-items/${params.id}`),
                 element: <Detail></Detail>
             },
             {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaUser } from "react-icons/fa";
 
 const ShowReviewCard = ({ item }) => {
     const { itemName, comment, photoURL, email } = item;
@@ -11,7 +12,7 @@ const ShowReviewCard = ({ item }) => {
             <div className="avatar">
                 <div className="w-10 mask mask-squircle">
                     {
-                        photoURL? <img src={photoURL}  alt="avatar" /> : <p>{email}</p>
+                        photoURL? <img src={photoURL}  alt="avatar" /> : <FaUser className='text-2xl mt-3'/>
                     }
                 </div>
             </div>

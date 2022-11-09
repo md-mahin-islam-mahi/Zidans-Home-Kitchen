@@ -1,10 +1,12 @@
 import React from 'react';
+import useTitle from '../../../Hooks/useTitle';
 import Services from '../Services/Services';
 import Available from './Available';
 import Chef from './Chef';
 import Slider from './Slider';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div className=''>
             <h1 className="text-2xl py-10">Welcome to
