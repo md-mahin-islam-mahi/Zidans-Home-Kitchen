@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../../Hooks/useTitle';
 import AllServiceCard from './AllServiceCard';
 
 const AllService = () => {
     const [foods, setFoods] = useState([]);
+    useTitle('Services')
 
     useEffect(() => {
-        fetch('http://localhost:5000/food-items')
+        fetch('https://zidans-home-kitchen.vercel.app/food-items')
             .then(res => res.json())
             .then(data => setFoods(data));
     }, [])

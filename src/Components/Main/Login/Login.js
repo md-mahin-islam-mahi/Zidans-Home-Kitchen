@@ -4,11 +4,13 @@ import { AuthContext } from '../../Context/UserContext';
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import login from './image/login.png';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../../Hooks/useTitle';
 
 
 const Login = () => {
     const {googleSignUp, loginMethod, gitHubLogin, facebookLogin} = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Login')
 
     const handleLogin = event => {
         event.preventDefault()

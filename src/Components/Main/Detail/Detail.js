@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 
 const Detail = () => {
     const food = useLoaderData();
     const { name, image, ratings, price, description } = food;
+    useTitle(name + " Detail")
     return (
         <div className='py-20'>
             <div className="card card-side w-1/2 mx-auto shadow-xl border">
@@ -19,8 +21,6 @@ const Detail = () => {
                         <span className='ml-5'><b>Price: {price}</b></span>
                     </p>
                 </div>
-            </div>
-            <div>
             </div>
         </div>
     );
