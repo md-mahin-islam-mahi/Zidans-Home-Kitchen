@@ -2,7 +2,7 @@ import React from 'react';
 import { FaUser } from "react-icons/fa";
 
 const ShowReviewCard = ({ item }) => {
-    const { itemName, comment, photoURL, email } = item;
+    const { itemName, comment, photoURL } = item;
     return (
         
         <div className='flex items-center justify-around my-5 border rounded-lg'>

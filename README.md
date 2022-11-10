@@ -13,3 +13,8 @@ Some informations about Zidans Home Kitchen.
 * Login with email, gmai, and github
 * Some extra features in user login
 * User control on deleting own reviews
+
+## Live Server
+
+- [Zidans Home Kitchen](https://zidans-home-kitchen-8af28.web.app/)
+
