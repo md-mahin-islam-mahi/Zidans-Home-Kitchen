@@ -1,0 +1,9 @@
+.slider-img::after{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to right, #000, rgba(0, 39, 71, 0.596));
+}

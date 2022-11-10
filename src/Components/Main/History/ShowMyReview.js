@@ -4,7 +4,7 @@ const ShowMyReview = ({ item, selectedItem }) => {
 
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/reviews/${item._id}` ,{
+        fetch(`https://zidans-home-kitchen-server.vercel.app/reviews/${item._id}` ,{
             method: 'DELETE',
             headers: {
             }
@@ -12,8 +12,7 @@ const ShowMyReview = ({ item, selectedItem }) => {
         .then(res => res.json())
         .then(data => {
             if (data.deletedCount > 0) {
-                alert('Deleted Successfully! Please reload the page🙂' +
-                'I could not fix the bug.🙃' );
+                alert('Deleted Successfully! Please reload the page🙂');
             }
         })
     };

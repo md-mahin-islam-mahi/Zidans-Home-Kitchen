@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-review/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/food-items/${params.id}`),
+                loader: ({ params }) => fetch(`https://zidans-home-kitchen-server.vercel.app/food-items/${params.id}`),
                 element: <PrivateRout>
                     <ReviewItems></ReviewItems>
                 </PrivateRout>
@@ -56,12 +56,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/",
-                loader: () => fetch('http://localhost:5000/reviews'),
+                loader: () => fetch('https://zidans-home-kitchen-server.vercel.app/reviews'),
                 element: <ShowMyReview></ShowMyReview>
             },
             {
                 path: "/details/:id",
-                loader: ({ params }) => fetch(`https://zidans-home-kitchen.vercel.app/food-items/${params.id}`),
+                loader: ({ params }) => fetch(`https://zidans-home-kitchen-server.vercel.app/food-items/${params.id}`),
                 element: <Detail></Detail>
             },
             {

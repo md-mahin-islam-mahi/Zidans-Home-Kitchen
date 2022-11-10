@@ -7,7 +7,7 @@ const AllService = () => {
     useTitle('Services')
 
     useEffect(() => {
-        fetch('https://zidans-home-kitchen.vercel.app/food-items')
+        fetch('https://zidans-home-kitchen-server.vercel.app/food-items')
             .then(res => res.json())
             .then(data => setFoods(data));
     }, [])

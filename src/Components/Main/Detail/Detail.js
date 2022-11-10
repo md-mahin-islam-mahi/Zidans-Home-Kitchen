@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle';
 import SeeReview from '../../ReviewItems/SeeReview';
 
+
 const Detail = () => {
     const food = useLoaderData();
     const { name, image, ratings, price, description } = food;
