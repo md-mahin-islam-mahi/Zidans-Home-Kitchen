@@ -16,7 +16,6 @@ const ShowReviewCard = ({ item }) => {
                     }
                 </div>
             </div>
-            <button className='btn btn-ghost'>Edit</button>
         </div>
 
     );
