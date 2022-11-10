@@ -26,11 +26,6 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, provider);
     }
 
-    //*facebook signUp
-    const facebookLogin = (provider) => {
-        return signInWithPopup(auth, provider);
-    }
-
     //* login
     const loginMethod = (email, password) => {
         setLoader(true);
@@ -56,7 +51,6 @@ const UserContext = ({ children }) => {
         signUp,
         googleSignUp,
         gitHubLogin,
-        facebookLogin,
         loginMethod,
         logOutEvent
     }

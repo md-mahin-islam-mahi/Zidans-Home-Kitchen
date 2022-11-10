@@ -27,7 +27,11 @@ const History = () => {
         <div>
             <h2 className="text-4xl font-semibold py-10">My Reviews</h2>
             {
-                selectedItem.map(item => <ShowMyReview item={item}></ShowMyReview>)
+                selectedItem.map(item => <ShowMyReview 
+                    key={item._id}
+                    item={item}
+                    selectedItem={selectedItem}
+                    ></ShowMyReview>)
             }
         </div>
     );

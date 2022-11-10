@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
-import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import login from './image/login.png';
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../../Hooks/useTitle';
 
 
 const Login = () => {
-    const {googleSignUp, loginMethod, gitHubLogin, facebookLogin} = useContext(AuthContext);
+    const {googleSignUp, loginMethod, gitHubLogin} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -55,17 +55,6 @@ const Login = () => {
         .catch(err => console.error(err));
     }
 
-    //* facebook login Method
-    const facebookProvider = new FacebookAuthProvider();
-    const facebookSignup = () => {
-        facebookLogin(facebookProvider)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            navigate('/')
-        })
-        .catch(error => console.error(error));
-    }
     return (
         <form onSubmit={handleLogin}>
             <div className="hero min-h-screen">
@@ -89,7 +78,7 @@ const Login = () => {
                                 <input name="password" type="password" placeholder="password" className="input input-bordered" required />
                                 <div className='flex justify-center items-center'>
                                     <FaGoogle onClick={googleSignup} className='text-4xl mt-5 mx-5  cursor-pointer' />
-                                    <FaFacebook onClick={facebookSignup} className='text-4xl mt-5 mx-5  cursor-pointer' />
+                                    
                                     <FaGithub onClick={githubSignIn} className='text-4xl mt-5 mx-5  cursor-pointer' />
                                 </div>
                                 <p className="my-3">Don't have an account? <Link to="/signup">Sign Up</Link></p>
