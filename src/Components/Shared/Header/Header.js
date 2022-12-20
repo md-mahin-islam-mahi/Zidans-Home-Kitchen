@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser } from "react-icons/fa";
 import { AuthContext } from '../../Context/UserContext';
 
 const Header = () => {
@@ -51,9 +50,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user?.photoURL ? <img className='w-10 rounded-full cursor-pointer' src={user.photoURL} alt="" />
-                            :
-                            <FaUser />
+                        user?.photoURL && <img className='w-10 rounded-full cursor-pointer' src={user.photoURL} alt="" />
                     }
                 </div>
             </div>

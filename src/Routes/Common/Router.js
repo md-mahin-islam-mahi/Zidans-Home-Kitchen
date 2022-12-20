@@ -25,9 +25,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-service",
-                element: <PrivateRout>
-                    <Add></Add>
-                </PrivateRout>
+                element: <Add></Add>
             },
             {
                 path: "/services",
@@ -40,9 +38,7 @@ export const router = createBrowserRouter([
             {
                 path: "/add-review/:id",
                 loader: ({ params }) => fetch(`https://zidans-home-kitchen-server.vercel.app/food-items/${params.id}`),
-                element: <PrivateRout>
-                    <ReviewItems></ReviewItems>
-                </PrivateRout>
+                element: <ReviewItems></ReviewItems>
             },
             {
                 path: "/reviews",
@@ -50,9 +46,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/my-ratings",
-                element: <PrivateRout>
-                    <History></History>
-                </PrivateRout>
+                element: <History></History>
             },
             {
                 path: "/",
