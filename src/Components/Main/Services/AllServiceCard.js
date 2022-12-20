@@ -29,7 +29,7 @@ const AllServiceCard = ({ food }) => {
                     </p>
                     <div className="card-actions">
                         <Link to={`/details/${food._id}`}>
-                            <button className="btn btn-outline btn-error shadow-xl mt-3">Detail</button>
+                            <button className="btn btn-outline btn-error mt-3 w-80 shadow-lg">Detail</button>
                         </Link>
                     </div>
                 </div>

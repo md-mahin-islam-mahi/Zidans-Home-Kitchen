@@ -43,15 +43,10 @@ const Header = () => {
                     </div>
                     <Link to="/" className="btn btn-ghost normal-case text-xl">Zidans Home Kitchen</Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {navItems}
                     </ul>
-                </div>
-                <div className="navbar-end">
-                    {
-                        user?.photoURL && <img className='w-10 rounded-full cursor-pointer' src={user.photoURL} alt="" />
-                    }
                 </div>
             </div>
         </div>
