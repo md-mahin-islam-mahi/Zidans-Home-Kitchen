@@ -5,10 +5,12 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import login from './image/login.png';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../../Hooks/useTitle';
+import { useState } from 'react';
 
 
 const Login = () => {
     const {googleSignUp, loginMethod, gitHubLogin} = useContext(AuthContext);
+    const [error, setError] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -28,6 +30,7 @@ const Login = () => {
                 navigate(from, {replace: true})
             })
         .catch(error => {
+            setError(error.message)
         })
     };
 
@@ -40,7 +43,7 @@ const Login = () => {
             console.log(user);
             navigate(from, {replace: true})
         })
-        .catch(error => console.error(error));
+        .catch(error => setError(error.message));
     }
 
     //* github login Method
@@ -52,7 +55,7 @@ const Login = () => {
             console.log(user);
             navigate(from, {replace: true})
         })
-        .catch(err => console.error(err));
+        .catch(err => setError(err.message));
     }
 
     return (
@@ -76,6 +79,7 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input name="password" type="password" placeholder="password" className="input input-bordered" required />
+                                <p className='text-red-500'>{error}</p>
                                 <div className='flex justify-center items-center'>
                                     <FaGoogle onClick={googleSignup} className='text-4xl mt-5 mx-5  cursor-pointer' />
                                     
