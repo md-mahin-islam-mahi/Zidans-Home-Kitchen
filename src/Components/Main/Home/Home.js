@@ -9,9 +9,6 @@ const Home = () => {
     useTitle('Home')
     return (
         <div className=''>
-            <h1 className="text-2xl py-10">Welcome to
-                <br />
-                <span className='text-5xl font-bold'>Zidans Home Kitchen</span></h1>
             <div className='flex flex-col-reverse'>
 
                 {/* Text and Image */}

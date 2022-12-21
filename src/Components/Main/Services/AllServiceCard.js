@@ -10,7 +10,7 @@ const AllServiceCard = ({ food }) => {
     const { name, image, description, ratings, price } = food;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-md hover:shadow-xl hover:-translate-y-10 transition duration-200">
                 <figure className="px-10 pt-10">
                     <PhotoProvider>
                         <PhotoView src={image}>
