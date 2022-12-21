@@ -16,5 +16,5 @@ Some informations about Zidans Home Kitchen.
 
 ## Live Server
 
-- [Zidans Home Kitchen](https://zidans-home-kitchen-8af28.web.app/)
+- [Zidans Home Kitchen](https://zidans-home-kitchen-8af28.firebaseapp.com/)
 
